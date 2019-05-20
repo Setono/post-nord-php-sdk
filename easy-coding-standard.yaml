@@ -1,0 +1,6 @@
+imports:
+    - { resource: 'vendor/symplify/easy-coding-standard/config/symfony.yml' }
+
+services:
+    PhpCsFixer\Fixer\Import\OrderedImportsFixer: ~
+    PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer: ~

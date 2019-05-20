@@ -1,0 +1,7 @@
+includes:
+    - vendor/thecodingmachine/phpstan-safe-rule/phpstan-safe-rule.neon
+
+parameters:
+    excludes_analyse:
+        # Test dependencies
+        - 'tests/**.php'
