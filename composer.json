@@ -20,6 +20,7 @@
         "kriswallsmith/buzz": "^1.0",
         "localheinz/composer-normalize": "^1.1",
         "nyholm/psr7": "^1.1",
+        "phpspec/phpspec": "^5.1",
         "phpstan/phpstan": "^0.10.3",
         "phpunit/phpunit": "^8.0",
         "symplify/easy-coding-standard": "^5.1",
@@ -41,8 +42,11 @@
     "prefer-stable": true,
     "scripts": {
         "analyse": "./vendor/bin/phpstan analyse -c phpstan.neon -l max src",
-        "check-style": "./vendor/bin/ecs check --ansi src/ tests/",
-        "fix-style": "./vendor/bin/ecs check --fix --ansi src/ tests/",
-        "test": "./vendor/bin/phpunit"
+        "check-style": "./vendor/bin/ecs check --ansi src/ tests/ spec/",
+        "fix-style": "./vendor/bin/ecs check --fix --ansi src/ tests/ spec/",
+        "test": [
+            "./vendor/bin/phpspec run",
+            "./vendor/bin/phpunit"
+        ]
     }
 }
