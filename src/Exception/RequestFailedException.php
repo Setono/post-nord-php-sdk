@@ -12,15 +12,16 @@ use function Safe\sprintf;
 
 final class RequestFailedException extends RuntimeException
 {
+    /** @var RequestInterface */
     private $request;
+
+    /** @var ResponseInterface */
     private $response;
+
+    /** @var int */
     private $statusCode;
 
     /**
-     * @param RequestInterface  $request
-     * @param ResponseInterface $response
-     * @param int               $statusCode
-     *
      * @throws StringsException
      */
     public function __construct(RequestInterface $request, ResponseInterface $response, int $statusCode)

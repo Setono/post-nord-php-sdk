@@ -3,7 +3,7 @@
 [![Latest Version][ico-version]][link-packagist]
 [![Latest Unstable Version][ico-unstable-version]][link-packagist]
 [![Software License][ico-license]](LICENSE)
-[![Build Status][ico-travis]][link-travis]
+[![Build Status][ico-github-actions]][link-github-actions]
 [![Quality Score][ico-code-quality]][link-code-quality]
 
 A PHP SDK for the [PostNord API](https://developer.postnord.com/api).
@@ -61,9 +61,9 @@ $client->get('findNearestByAddress.json', [
 [ico-version]: https://poser.pugx.org/setono/post-nord-php-sdk/v/stable
 [ico-unstable-version]: https://poser.pugx.org/setono/post-nord-php-sdk/v/unstable
 [ico-license]: https://poser.pugx.org/setono/post-nord-php-sdk/license
-[ico-travis]: https://travis-ci.com/Setono/post-nord-php-sdk.svg?branch=master
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/Setono/post-nord-php-sdk.svg?style=flat-square
+[ico-github-actions]: https://github.com/Setono/post-nord-php-sdk/workflows/build/badge.svg
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/Setono/post-nord-php-sdk.svg
 
 [link-packagist]: https://packagist.org/packages/setono/post-nord-php-sdk
-[link-travis]: https://travis-ci.com/Setono/post-nord-php-sdk
+[link-github-actions]: https://github.com/Setono/post-nord-php-sdk/actions
 [link-code-quality]: https://scrutinizer-ci.com/g/Setono/post-nord-php-sdk

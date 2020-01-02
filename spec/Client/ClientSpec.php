@@ -18,6 +18,7 @@ use Setono\PostNord\Client\ClientInterface;
 class ClientSpec extends ObjectBehavior
 {
     private const API_KEY = 'api_key';
+
     private const BASE_URL = 'https://api2.postnord.com';
 
     public function let(
@@ -45,7 +46,7 @@ class ClientSpec extends ObjectBehavior
         StreamInterface $stream
     ): void {
         $requestFactory
-            ->createRequest('GET', self::BASE_URL.'/endpoint.json?apikey='.self::API_KEY.'&param1=value1&param2=value2')
+            ->createRequest('GET', self::BASE_URL . '/endpoint.json?apikey=' . self::API_KEY . '&param1=value1&param2=value2')
             ->shouldBeCalled();
 
         $response->getStatusCode()->willReturn(200);
@@ -72,7 +73,7 @@ class ClientSpec extends ObjectBehavior
         $request->withBody(Argument::any())->willReturn($request);
 
         $requestFactory
-            ->createRequest('POST', self::BASE_URL.'/endpoint.json?apikey='.self::API_KEY.'&param1=value1&param2=value2')
+            ->createRequest('POST', self::BASE_URL . '/endpoint.json?apikey=' . self::API_KEY . '&param1=value1&param2=value2')
             ->willReturn($request);
 
         $streamFactory
