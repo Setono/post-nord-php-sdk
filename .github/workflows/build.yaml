@@ -20,6 +20,7 @@ jobs:
                 uses: shivammathur/setup-php@master
                 with:
                     php-version: ${{ matrix.php-versions }}
+                    extensions: mbstring
             -   name: Install Composer dependencies
                 run: composer update --no-progress --no-suggest --prefer-dist --no-interaction
             -   name: Validate composer
