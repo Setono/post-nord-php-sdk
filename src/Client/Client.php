@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Setono\PostNord\Client;
 
+use const PHP_QUERY_RFC3986;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface as HttpClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
@@ -16,29 +17,19 @@ use Setono\PostNord\Exception\RequestFailedException;
 
 final class Client implements ClientInterface
 {
-    /**
-     * @var HttpClientInterface
-     */
+    /** @var HttpClientInterface */
     private $httpClient;
 
-    /**
-     * @var RequestFactoryInterface
-     */
+    /** @var RequestFactoryInterface */
     private $requestFactory;
 
-    /**
-     * @var StreamFactoryInterface
-     */
+    /** @var StreamFactoryInterface */
     private $streamFactory;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $apiKey;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $baseUrl;
 
     public function __construct(
@@ -56,11 +47,6 @@ final class Client implements ClientInterface
     }
 
     /**
-     * @param string $endpoint
-     * @param array  $params
-     *
-     * @return array
-     *
      * @throws ClientExceptionInterface
      * @throws JsonException
      * @throws StringsException
@@ -71,12 +57,6 @@ final class Client implements ClientInterface
     }
 
     /**
-     * @param string $endpoint
-     * @param array  $params
-     * @param array  $body
-     *
-     * @return array
-     *
      * @throws ClientExceptionInterface
      * @throws JsonException
      * @throws StringsException
@@ -87,13 +67,6 @@ final class Client implements ClientInterface
     }
 
     /**
-     * @param string $method
-     * @param string $endpoint
-     * @param array  $params
-     * @param array  $body
-     *
-     * @return array
-     *
      * @throws ClientExceptionInterface
      * @throws JsonException
      * @throws StringsException
@@ -104,11 +77,11 @@ final class Client implements ClientInterface
             'apikey' => $this->apiKey,
         ], $params);
 
-        $url = $this->baseUrl.'/'.$endpoint.'?'.http_build_query($params, '', '&', PHP_QUERY_RFC3986);
+        $url = $this->baseUrl . '/' . $endpoint . '?' . http_build_query($params, '', '&', PHP_QUERY_RFC3986);
 
         $request = $this->requestFactory->createRequest($method, $url);
 
-        if (!empty($body)) {
+        if (count($body) > 0) {
             $request = $request->withBody($this->streamFactory->createStream(json_encode($body)));
         }
 
