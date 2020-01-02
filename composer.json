@@ -43,12 +43,14 @@
     },
     "prefer-stable": true,
     "scripts": {
-        "analyse": "./vendor/bin/phpstan analyse -c phpstan.neon -l max src",
-        "check-style": "./vendor/bin/ecs check --ansi src/ tests/ spec/",
-        "fix-style": "./vendor/bin/ecs check --fix --ansi src/ tests/ spec/",
+        "analyse": "vendor/bin/phpstan analyse -c phpstan.neon -l max src",
+        "check-style": "vendor/bin/ecs check --ansi src/ tests/ spec/",
+        "fix-style": "vendor/bin/ecs check --fix --ansi src/ tests/ spec/",
+        "phpspec": "vendor/bin/phpspec run",
+        "phpunit": "vendor/bin/phpunit",
         "test": [
-            "./vendor/bin/phpspec run",
-            "./vendor/bin/phpunit"
+            "@phpspec",
+            "@phpunit"
         ]
     }
 }
