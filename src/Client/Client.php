@@ -77,7 +77,7 @@ final class Client implements ClientInterface
             'apikey' => $this->apiKey,
         ], $params);
 
-        $url = $this->baseUrl . '/' . $endpoint . '?' . http_build_query($params, '', '&', PHP_QUERY_RFC3986);
+        $url = $this->baseUrl . '/' . ltrim($endpoint, '/') . '?' . http_build_query($params, '', '&', PHP_QUERY_RFC3986);
 
         $request = $this->requestFactory->createRequest($method, $url);
 
