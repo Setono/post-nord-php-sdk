@@ -58,6 +58,9 @@ $client->get('findNearestByAddress.json', [
 ]);
 ```
 
+## Framework integration
+- There is a Symfony bundle integrating this library: [Symfony Post Nord Bundle](https://github.com/Setono/PostNordBundle)
+
 [ico-version]: https://poser.pugx.org/setono/post-nord-php-sdk/v/stable
 [ico-unstable-version]: https://poser.pugx.org/setono/post-nord-php-sdk/v/unstable
 [ico-license]: https://poser.pugx.org/setono/post-nord-php-sdk/license
