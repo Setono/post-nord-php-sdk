@@ -30,7 +30,7 @@ final class RequestFailedException extends RuntimeException
         $this->response = $response;
         $this->statusCode = $statusCode;
 
-        parent::__construct(sprintf('Request failed with status code %d', $this->statusCode));
+        parent::__construct(sprintf('Request failed with status code %d. Request URI was: %s', $this->statusCode, (string) $this->request->getUri()));
     }
 
     public function getRequest(): RequestInterface
