@@ -9,8 +9,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface as HttpClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
-use Safe\Exceptions\JsonException;
-use Safe\Exceptions\StringsException;
 use function Safe\json_decode;
 use function Safe\json_encode;
 use Setono\PostNord\Exception\RequestFailedException;
@@ -48,8 +46,6 @@ final class Client implements ClientInterface
 
     /**
      * @throws ClientExceptionInterface
-     * @throws JsonException
-     * @throws StringsException
      */
     public function get(string $endpoint, array $params = []): array
     {
@@ -58,8 +54,6 @@ final class Client implements ClientInterface
 
     /**
      * @throws ClientExceptionInterface
-     * @throws JsonException
-     * @throws StringsException
      */
     public function post(string $endpoint, array $params = [], array $body = []): array
     {
@@ -68,8 +62,6 @@ final class Client implements ClientInterface
 
     /**
      * @throws ClientExceptionInterface
-     * @throws JsonException
-     * @throws StringsException
      */
     private function sendRequest(string $method, string $endpoint, array $params = [], array $body = []): array
     {
