@@ -6,7 +6,7 @@ on:
         - cron: 5 8 * * 5
 jobs:
     checks:
-        name: PHP ${{ matrix.php-versions }}
+        name: 'PHP ${{ matrix.php-versions }} with composer args: ${{ matrix.composer-args }}'
         runs-on: ${{ matrix.operating-system }}
         strategy:
             fail-fast: false
