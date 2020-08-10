@@ -6,7 +6,9 @@ namespace Setono\PostNord\Exception;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\UriInterface;
 use RuntimeException;
+use function Safe\preg_replace;
 use function Safe\sprintf;
 
 final class RequestFailedException extends RuntimeException
@@ -26,7 +28,9 @@ final class RequestFailedException extends RuntimeException
         $this->response = $response;
         $this->statusCode = $statusCode;
 
-        parent::__construct(sprintf('Request failed with status code %d. Request URI was: %s', $this->statusCode, (string) $this->request->getUri()));
+        $uri = self::resolveUri($this->request->getUri());
+
+        parent::__construct(sprintf('Request failed with status code %d. Request URI was: %s', $this->statusCode, $uri));
     }
 
     public function getRequest(): RequestInterface
@@ -42,5 +46,13 @@ final class RequestFailedException extends RuntimeException
     public function getStatusCode(): int
     {
         return $this->statusCode;
+    }
+
+    private static function resolveUri(UriInterface $uri): string
+    {
+        // this will mask the API key in logs etc
+        $query = preg_replace('/apikey=[^&]+/i', 'apikey=******', $uri->getQuery());
+
+        return (string) $uri->withQuery($query);
     }
 }
