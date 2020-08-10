@@ -10,4 +10,8 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <php>
+        <!-- Insert your Post Nord API key to run the live client test -->
+        <env name="POST_NORD_API_KEY" value=""/>
+    </php>
 </phpunit>
