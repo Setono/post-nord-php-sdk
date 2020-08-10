@@ -17,16 +17,11 @@
         "thecodingmachine/safe": "^1.0"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "^2.0",
-        "korbeil/phpstan-generic-rules": "^0.2",
         "kriswallsmith/buzz": "^1.0",
         "nyholm/psr7": "^1.1",
-        "phpspec/phpspec": "^5.1 || ^6.0",
-        "phpstan/phpstan": "^0.12",
-        "phpstan/phpstan-strict-rules": "^0.12",
-        "phpunit/phpunit": "^8.0",
-        "sylius-labs/coding-standard": "^3.1",
-        "thecodingmachine/phpstan-safe-rule": "^1.0beta"
+        "phpspec/phpspec": "^6.2",
+        "phpunit/phpunit": "^8.5",
+        "setono/code-quality-pack": "^1.2"
     },
     "config": {
         "sort-packages": true
