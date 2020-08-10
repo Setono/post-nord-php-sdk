@@ -50,7 +50,11 @@ final class RequestFailedException extends RuntimeException
 
     private static function resolveUri(UriInterface $uri): string
     {
-        // this will mask the API key in logs etc
+        /**
+         * this will mask the API key in logs etc
+         *
+         * @var string $query
+         */
         $query = preg_replace('/apikey=[^&]+/i', 'apikey=******', $uri->getQuery());
 
         return (string) $uri->withQuery($query);
